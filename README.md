@@ -13,10 +13,10 @@ SELECT UPPER((SELECT CASE WHEN order_items.promo_code IS NULL THEN 'NO-PROMO' EL
 An alternative is to use the extension citext, but that is only helpful if there are only a few known variants of the promo_code or the function ILIKE, although that's not very efficient in terms of performance.
 
 ## 2
-To query the top 5 sold items besides product 1001 one may use the following query
+To query the top 5 sold items per cart besides product 1001 one may use the following query:
 
 ``` sql
-SELECT COUNT(item_id) AS item_count, item_id, order_id FROM order_items WHERE item_id <> 1001 GROUP BY item_id, order_id ORDER BY item_count desc LIMIT 5;
+SELECT order_id, item_id, COUNT(item_id) AS item_count FROM order_items WHERE item_id <> 1001 GROUP BY order_id, item_id ORDER BY order_id, item_count desc;
 ```
 
 ## 3
