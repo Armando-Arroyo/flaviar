@@ -1,0 +1,53 @@
+begin;
+
+INSERT INTO order_items (
+    order_id,
+    customer_id,
+    item_id,
+    order_created_date,
+    promo_code,
+    price
+) VALUES
+    (
+        1,
+        101,
+        1000,
+        '2020-05-01',
+        'whiskey15',
+        45
+    )
+    ,(
+        2,
+        516,
+        1000,
+        '2020-05-04',
+        NULL,
+        60
+    )
+    ,(
+        2,
+        516,
+        1001,
+        '2020-05-04',
+        NULL,
+        120
+    )
+    ,(
+        3,
+        606,
+        1000,
+        '2020-05-06',
+        'WHISKEY15',
+        45
+    )
+    ,(
+        4,
+        1024,
+        1000,
+        '2020-05-06',
+        'Whiskey15',
+        45
+    )
+;
+
+commit;
